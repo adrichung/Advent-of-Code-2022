@@ -1,6 +1,7 @@
 # given input with each line as num. of cals. in food item.
 # each line break separates elves.
-# find the elf max number of calories.
+# find the max number of calories held by an elf.
+# find the total of the top three elves.
 
 
 # e.g. 
@@ -20,6 +21,7 @@
 # 10000
 
 # output 24000, for 7000 + 8000 + 9000
+# output 45000 for total of top 3.
 
 
 max = 0
