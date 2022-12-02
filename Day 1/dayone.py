@@ -23,23 +23,34 @@
 # output 24000, for 7000 + 8000 + 9000
 # output 45000 for total of top 3.
 
-
+# stores the max calories counted so far.
 max = 0
+
+# array storing top 3 calorie totals so far.
 top_three = [0, 0, 0]
 
+# given a number, it checks if this number is greater than the minimum in top_three.
+# if yes, replace the minimum with the number.
 def insert(num):
     mini = min(top_three)
     if mini < num:
         index = top_three.index(mini)
         top_three[index] = num
 
-with open('input.txt') as f:
+with open('Day 1\input.txt') as f:
     current = 0
     for line in f:
+        # \n indicates end of elf's list
         if line == "\n":
+            
+            # check if this elf would be in our running list of top 3 elves.
             insert(current)
+            
+            # replace max calories counted so far if the elf has more than our old max.
             if max < current:
                 max = current
+                
+            # reset count
             current = 0
         else:
             current += int(line)
