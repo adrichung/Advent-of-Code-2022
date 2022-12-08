@@ -31,6 +31,7 @@ with open('Day 4\input.txt') as f:
             total_subsets += 1
         if overlaps(line.replace('\n', '').split(",")):
             total_overlaps += 1
+    f.close()
             
 print("The total number of pairs with one range fully in another is : " + str(total_subsets))
 print("The total number of pairs with one range overlapping another is : " + str(total_overlaps))
