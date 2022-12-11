@@ -1,4 +1,5 @@
-# Given a datastream string, find the first index where the preceding four characters are non-repeating.
+# Given a datastream string, find the start-of-message marker, or the first index where the preceding four characters are non-repeating.
+# Also, find the index where the preceding 14 characters are non-repeating.
 
 # e.g.
 # bvwbjplbgvbhsrlpgdmjqwftvncz
