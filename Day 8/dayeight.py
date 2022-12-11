@@ -16,6 +16,8 @@
 # 21 trees are visible (for example, the top-left 5.)
 # The tree with the highest scenic score is the 5 in the 4th row. (2 x 2 x 1 x 2 => 8)
 
+
+# Calculate the number of trees visible upwards.
 def calc_up(tree):
     index = y
     total_up = 0
@@ -28,6 +30,7 @@ def calc_up(tree):
             break
     return total_up
 
+# Calculate the number of trees visible downwards.
 def calc_down(tree):
     index = y
     total_down = 0
@@ -40,6 +43,7 @@ def calc_down(tree):
             break
     return total_down
 
+# Calculate the number of trees visible leftwards.
 def calc_left(tree):
     index = x
     total_left = 0
@@ -52,6 +56,7 @@ def calc_left(tree):
             break
     return total_left
 
+# Calculate the number of trees visible rightwards.
 def calc_right(tree):
     index = x
     total_right = 0
@@ -64,6 +69,7 @@ def calc_right(tree):
             break
     return total_right
 
+# Check if the tree is visible from the right.
 def check_right(tree):
     index = x + 1
     while index <= col_max:
@@ -73,6 +79,7 @@ def check_right(tree):
         index += 1
     return True
 
+# Check if the tree is visible from the left.
 def check_left(tree):
     index = x - 1
     while index >= 0:
@@ -82,6 +89,7 @@ def check_left(tree):
         index -= 1
     return True
 
+# Check if the tree is visible from the top.
 def check_up(tree):
     index = y - 1
     while index >= 0:
@@ -91,6 +99,7 @@ def check_up(tree):
         index -= 1
     return True
 
+# Check if the tree is visible from the bottom.
 def check_down(tree):
     index = y + 1
     while index <= row_max:
@@ -101,15 +110,19 @@ def check_down(tree):
     return True
 
 grid = []
+
+# Build the grid.
 with open('Day 8\input.txt') as f:
     for line in f:
         row_line = [int(i) for i in list(line.replace("\n", ""))]
         grid.append(row_line)
     f.close()
 
+# Initialise some key variables.
 total_visible, x, y, max_scenic = 0, 0, 0, 0
 row_max, col_max = len(grid) - 1, len(grid[0]) - 1
 
+# Iterate over grid.
 for row in grid:
     for tree in row:
         if check_up(tree) or check_down(tree) or check_left(tree) or check_right(tree):
